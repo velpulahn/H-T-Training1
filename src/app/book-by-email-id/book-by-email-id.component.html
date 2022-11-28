@@ -1,0 +1,178 @@
+
+<tabs>
+  <tab tabTitle="Purchased Books By Email Id">
+    <body>
+      <div class="container">
+    <form [formGroup]="userForm" id='survey-form' (ngSubmit)="onSubmit(user)">
+      <div class='form-group'>
+          <label id='emailId'>Email ID</label>
+          <input [(ngModel)]="user.emailId" type='text' formControlName="emailId" id='emailId' placeholder='Enter your Email Id'
+           class='form-control' name="emailId" required />
+      <span class="text-danger" *ngIf="userForm.controls['emailId'].dirty && userForm.hasError('required','emailId')">*Email Id is Required</span>
+        </div>
+        <button type="submit" [disabled]="!userForm.valid">Get Purchased Books</button>
+    <table *ngIf="books.length>0">
+      <thead>
+        <tr>
+            <th>S.No.</th>
+            <th>BookId</th>
+            <th>AuthorId</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Price</th>
+            <th>Published Date</th>
+            <th>Category</th>
+            <th>Rating</th>
+            <th>Active</th>
+            <th>Content</th>
+    
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let b of books;let i = index">
+            <td>{{i+1}}</td>
+            <td>{{b.bookId}}</td>
+            <td>{{b.authorId}}</td>
+            <td>{{b.title}}</td>
+            <td>{{b.author}}</td>
+            <td>{{b.publisher}}</td>
+            <td>{{b.price}}</td>
+            <td>{{b.publishedDate}}</td>
+            <td>{{b.category}}</td>
+            <td>{{b.rating}}</td>
+            <td>{{b.active}}</td>
+            <td>{{b.content}}</td>
+         </tr>
+    </table>
+      </form>
+      </div>
+      </body>
+  </tab>
+  <tab tabTitle ="Purchased Book By Email Id and Book Id">
+    <body>
+      <div class="container">
+    <form [formGroup]="bookForm" id='survey-form' (ngSubmit)="onSubmitBy(bookById)">
+      <div class='form-group'>
+          <label id='emailId'>Email ID</label>
+          <input [(ngModel)]="bookById.emailId" type='text' formControlName="emailId" id='emailId' placeholder='Enter your Email Id'
+           class='form-control' name="emailId" required />
+      <span class="text-danger" *ngIf="bookForm.controls['emailId'].dirty && bookForm.hasError('required','emailId')">*Email Id is Required</span>
+        </div>
+        <div class='form-group'>
+          <label id='bookId'>Book ID</label>
+          <input [(ngModel)]="bookById.bookId" type='text' formControlName="bookId" id='bookId' placeholder='Enter your Book Id'
+           class='form-control' name="bookId" required />
+      <span class="text-danger" *ngIf="bookForm.controls['bookId'].dirty && bookForm.hasError('required','bookId')">*Book Id is Required</span>
+        </div>
+        <button type="submit" [disabled]="!bookForm.valid">Get Purchased Book</button>
+    <table *ngIf="book.length>0">
+      <thead>
+        <tr>
+            <th>S.No.</th>
+            <th>BookId</th>
+            <th>AuthorId</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Price</th>
+            <th>Published Date</th>
+            <th>Category</th>
+            <th>Rating</th>
+            <th>Active</th>
+            <th>Content</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of book;let i = index">
+                <td>{{i+1}}</td>
+                <td>{{b.bookId}}</td>
+                <td>{{b.authorId}}</td>
+                <td>{{b.title}}</td>
+                <td>{{b.author}}</td>
+                <td>{{b.publisher}}</td>
+                <td>{{b.price}}</td>
+                <td>{{b.publishedDate}}</td>
+                <td>{{b.category}}</td>
+                <td>{{b.rating}}</td>
+                <td>{{b.active}}</td>
+                <td>{{b.content}}</td>
+             </tr>
+        </table>
+      </form>
+      </div>
+      </body>
+  </tab>
+  <tab tabTitle ="Purchased Book By Email Id and Payment ID">
+    <body>
+      <div class="container">
+    <form [formGroup]="paymentForm" id='survey-form' (ngSubmit)="onSubmitOf(bookByPaymentId)">
+      <div class='form-group'>
+          <label id='emailId'>Email ID</label>
+          <input [(ngModel)]="bookByPaymentId.emailId" type='text' formControlName="emailId" id='emailId' placeholder='Enter your Email Id'
+           class='form-control' name="emailId" required />
+      <span class="text-danger" *ngIf="paymentForm.controls['emailId'].dirty && bookForm.hasError('required','emailId')">*Email Id is Required</span>
+        </div>
+        <div class='form-group'>
+          <label id='bookId'>Payment ID</label>
+          <input [(ngModel)]="bookByPaymentId.paymentId" type='number' formControlName="paymentId" id='paymentId' placeholder='Enter your PaymentId Id'
+           class='form-control' name="paymentId" required />
+      <span class="text-danger" *ngIf="paymentForm.controls['paymentId'].dirty && paymentForm.hasError('required','paymentId')">*Payment Id is Required</span>
+        </div>
+        <button type="submit" [disabled]="!paymentForm.valid">Get Purchased Book</button>
+    <table *ngIf="order.length>0">
+      <thead>
+        <tr>
+            <th>S.No.</th>
+            <th>PaymentId</th>
+            <th>UserId</th>
+            <th>Description</th>
+            <th>Payment Date</th>
+            <th>BookId</th>
+            <th>AuthorId</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Price</th>
+            <th>Published Date</th>
+            <th>Category</th>
+            <th>Rating</th>
+            <th>Active</th>
+            <th>Content</th>
+            <th>User Name</th>
+            <th>Email Id</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of order;let i = index">
+                <td>{{i+1}}</td>
+                <td>{{b.paymentId}}</td>
+                <td>{{b.userId}}</td>
+                <td>{{b.description}}</td>
+                <td>{{b.paymentDate}}</td>
+                <td>{{b.bookId}}</td>
+                <td>{{b.bookId}}</td>
+                <td>{{b.authorId}}</td>
+                <td>{{b.title}}</td>
+                <td>{{b.author}}</td>
+                <td>{{b.publisher}}</td>
+                <td>{{b.price}}</td>
+                <td>{{b.publishedDate}}</td>
+                <td>{{b.category}}</td>
+                <td>{{b.rating}}</td>
+                <td>{{b.active}}</td>
+                <td>{{b.content}}</td>
+                <td>{{b.userName}}</td>
+                <td>{{b.emailId}}</td>
+                <td>{{b.roles}}</td>
+             </tr>
+        </table>
+      </form>
+      </div>
+      </body>
+  </tab>
+</tabs>
+<div style="margin-top: auto; width: 100%; background-color: #58b5eb; padding-top: 5px; text-align: center;">
+  <p>Copyright &copy; 2022</p>
+</div>

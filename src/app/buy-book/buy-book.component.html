@@ -1,0 +1,78 @@
+<h4>bookss Available</h4>
+<table>
+    <thead>
+        <tr>
+            <th>S.No.</th>
+            <th>booksId</th>
+            <th>AuthorId</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Price</th>
+            <th>Published Date</th>
+            <th>Category</th>
+            <th>Rating</th>
+            <th>Active</th>
+            <th>Content</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{books.bookId}}</td>
+            <td>{{books.authorId}}</td>
+            <td>{{books.title}}</td>
+            <td>{{books.author}}</td>
+            <td>{{books.publisher}}</td>
+            <td>{{books.price}}</td>
+            <td>{{books.publishedDate}}</td>
+            <td>{{books.category}}</td>
+            <td>{{books.rating}}</td>
+            <td>{{books.isActive}}</td>
+            <td>{{books.content}}</td>
+         </tr>
+    </tbody>
+</table>  
+<h2>To Proceed to Buy this book, Please enter the below details</h2>
+<body>
+    <div class="container">
+  <form [formGroup]="bookForm" id='survey-form' (ngSubmit)="onSubmitBy(books)">
+    <div class='form-group'>
+        <label id='userId'>User ID</label>
+        <input [(ngModel)]="books.userId" type='number' formControlName="userId" id='userId' placeholder='Enter your User Id'
+         class='form-control' name="userId" required />
+    <span class="text-danger" *ngIf="bookForm.controls['userId'].dirty && bookForm.hasError('required','userId')">*Email Id is Required</span>
+      </div>     
+    <div class='form-group'>
+        <label id='books'>Email ID</label>
+        <input [(ngModel)]="books.emailId" type='text' formControlName="emailId" id='emailId' placeholder='Enter your Email Id'
+         class='form-control' name="emailId" required />
+    <span class="text-danger" *ngIf="bookForm.controls['emailId'].dirty && bookForm.hasError('required','emailId')">*Email Id is Required</span>
+      </div>
+      <div class='form-group'>
+        <label id='books'>User Name</label>
+        <input [(ngModel)]="books.userName" type='text' formControlName="userName" id='userName' placeholder='Enter your User Name'
+         class='form-control' name="userName" required />
+    <span class="text-danger" *ngIf="bookForm.controls['userName'].dirty && bookForm.hasError('required','userName')">*Book Id is Required</span>
+      </div>
+      <div class='form-group'>
+        <label id='books'>Description</label>
+        <input [(ngModel)]="books.description" type='text' formControlName="description" id='description' placeholder='Enter your Description'
+         class='form-control' name="description" required />
+    <span class="text-danger" *ngIf="bookForm.controls['description'].dirty && bookForm.hasError('required','description')">*Description is Required</span>
+      </div>
+    <div class='form-group'>
+      <label id='books'>Role</label>
+      <input [(ngModel)]="books.role" type='text' formControlName="role" id='role' placeholder='Enter your Role'
+       class='form-control' name="role" required />
+  <span class="text-danger" *ngIf="bookForm.controls['role'].dirty && bookForm.hasError('required','role')">*Role is Required</span>
+    </div>
+      <div class='form-group'>
+        <label id='books' for="paymentDate">Payment Date</label>
+        <input type='date' [(ngModel)]="books.paymentDate" id='paymentDate'
+          formControlName="paymentDate" placeholder='DD/MM/YYYY' class="form-control" name="paymentDate"
+          required />
+        <span class="text-danger"
+          *ngIf="bookForm.controls['paymentDate'].dirty && bookForm.hasError('required','paymentDate')">*Payment
+          Date is Required</span>
+      </div>
+      <button type="submit" [disabled]="!bookForm.valid">Buy Book</button>

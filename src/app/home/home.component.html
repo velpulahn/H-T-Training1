@@ -1,0 +1,23 @@
+<body>
+    <div class="header" style="text-align: center;">
+      <a>Digital Books Application</a>
+      <div class="header-right">
+        <a routerLink="/refund">Get Refund for Book</a>
+        <a routerLink="/bookbyemailid">Purchased Books</a>
+        <a routerLink="/bookbysearch">Get Books By Search</a>
+        <a routerLink="/signUp">SIGN UP</a>
+        <a routerLink="/login" *ngIf ='!loggedIn'>SIGN IN</a>
+        <a *ngIf ='loggedIn'>{{username}}</a>
+        <a routerLink="/logout" *ngIf ="loggedIn">Logout</a>
+      </div>
+    </div>
+    <!-- <p class="style">Nowadays, a book may be published traditionally or self-published or not even published in print at all. But most book content is arranged in a traditional, prescribed manner. The elements of this content share a common structure, and each element appears in a similar location in every book. The most common are outlined below. 
+      Some may not always appear, but when they do, they are in the same place in every book.
+      Body matter is the core contents of the book—or what is called the “story.” The core content is most often divided into discrete segments, most commonly chapters. Chapters may be part of larger divided chunks, called parts or sections. 
+      The body matter is numbered with Arabic numerals beginning with the number “1” on the first page of the first chapter.​</p> -->
+    
+    <!-- <div style="margin-top: 100px; width: 100%; background-color: #58b5eb; padding-top: 5px; text-align: center;">
+      <p>Copyright &copy; 2022</p>
+    </div> -->
+    </body>
+    

@@ -1,0 +1,140 @@
+<tabs>
+  <tab tabTitle="CreateBook">
+    <body>
+      <div class="container">
+        <form [formGroup]="loginForm" id='survey-form' #addBook="ngForm" (ngSubmit)="login(addBook)">
+          <!-- <div class='form-group'>
+            <label id='bookId-label' for="bookId">Book Id</label>
+            <input type="number" [(ngModel)]="bookDetails.bookId" name="bookId" id="bookId" formControlName="bookId"
+              placeholder="Enter Book Id" required>
+            <span class="text-danger"
+              *ngIf="loginForm.controls['bookId'].dirty && loginForm.hasError('required','bookId')">*Author ID is
+              Required</span>
+          </div> -->
+          <div class='form-group'>
+            <label id='authorId-label' for="authorId">Author Id</label>
+            <input type="number" [(ngModel)]="bookDetails.authorId" id="authorId" formControlName="authorId"
+              class="form-control" placeholder='Enter your Author Id' name="authorId" required />
+            <span class="text-danger"
+              *ngIf="loginForm.controls['authorId'].dirty && loginForm.hasError('required','authorId')">*Author ID is
+              Required</span>
+          </div>
+          <div class="form-group">
+            <label id='title-label' for="title">Title</label>
+            <input type="text" [(ngModel)]="bookDetails.title" name="title" formControlName="title" class="form-control"
+              id="title" placeholder="Enter Book Title" name="title" required>
+            <span class="text-danger"
+              *ngIf="loginForm.controls['title'].dirty && loginForm.hasError('required','title')">*Title is
+              Required</span>
+          </div>
+          <div class="form-group">
+            <label id='author-label' for="author">Author</label>
+            <input type='text' [(ngModel)]="bookDetails.author" id='author' formControlName="author"
+              class="form-control" placeholder='Enter your Author Name' name="author" required />
+            <span class="text-danger"
+              *ngIf="loginForm.controls['author'].dirty && loginForm.hasError('required','author')">*Author is
+              Required</span>
+          </div>
+          <div class="form-group">
+            <label id='publisher-label' for="publisher">Publisher</label>
+            <input type='text' [(ngModel)]="bookDetails.publisher" id='publisher' formControlName="publisher"
+              class="form-control" placeholder='Enter your publisher Name' name="publisher" required />
+            <span class="text-danger"
+              *ngIf="loginForm.controls['publisher'].dirty && loginForm.hasError('required','publisher')">*Author is
+              Required</span>
+          </div>
+          <div class='form-group'>
+            <label id='price-label' for="price">Price</label>
+            <input type='number' [(ngModel)]="bookDetails.price" id='price' formControlName="price"
+              placeholder='Enter your Price' class="form-control" name="price" required />
+            <span class="text-danger"
+              *ngIf="loginForm.controls['price'].dirty && loginForm.hasError('required','price')">*Price is
+              Required</span>
+          </div>
+          <div class='form-group'>
+            <label id='publishedDate-label' for="publishedDate">Published Date</label>
+            <input type='date' [(ngModel)]="bookDetails.publishedDate" id='publishedDate'
+              formControlName="publishedDate" placeholder='DD/MM/YYYY' class="form-control" name="publishedDate"
+              required />
+            <span class="text-danger"
+              *ngIf="loginForm.controls['publishedDate'].dirty && loginForm.hasError('required','publishedDate')">*Published
+              Date is Required</span>
+          </div>
+          <div class='form-group'>
+            <label id='category-label' for="category">Category</label>
+            <input type='text' [(ngModel)]="bookDetails.category" id='category' formControlName="category"
+              placeholder='Enter your category' class="form-control" name="category" required />
+            <span class="text-danger"
+              *ngIf="loginForm.controls['category'].dirty && loginForm.hasError('required','category')">*Category ID is
+              Required</span>
+          </div>
+          <div class='form-group'>
+            <label id='rating-label' for="rating">Rating</label>
+            <input type='number' [(ngModel)]="bookDetails.rating" id='rating' formControlName="rating"
+              placeholder='Give your Rating' class="form-control" name="rating" required />
+            <span class="text-danger"
+              *ngIf="loginForm.controls['rating'].dirty && loginForm.hasError('required','rating')">*Rating is
+              Required</span>
+          </div>
+          <div class='form-group'>
+            <label id='active-label' for="isActive">Active</label>
+            <input type='text' [(ngModel)]="bookDetails.active" id='active' formControlName="active"
+              placeholder='Enter Book Status' class="form-control" name="active" required />
+            <span class="text-danger"
+              *ngIf="loginForm.controls['active'].dirty && loginForm.hasError('required','active')">*Active Status
+              is Required</span>
+          </div>
+          <div class='form-group'>
+            <label id='content-label' for="content">Content</label>
+            <input type='text' [(ngModel)]="bookDetails.content" id='content' formControlName="content"
+              placeholder='Enter Book Content' class="form-control" name="content" required />
+            <span class="text-danger"
+              *ngIf="loginForm.controls['content'].dirty && loginForm.hasError('required','content')">*Content is
+              Required</span>
+          </div>
+          <button type="submit" [disabled]="!loginForm.valid">Sign Up</button>
+        </form>
+      </div>
+    </body>
+  </tab>
+  <tab tabTitle="Books">
+    <body>
+    <button type="submit" (click)="getBooks(bookDetails.authorId)">Get Books</button>
+    <table *ngIf="books.length>0">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+      </mat-card-header>
+      <img style="max-width: 400px; max-height: 200px;" mat-card-image src="../../assets/images/Book.jfif" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+           <thead>
+           <tr>
+            <th>S.No.</th>
+            <th>AuthorId</th>
+            <th>Title</th>
+            <th>Publisher</th>
+            <th>Category</th>
+            <th>Rating</th>
+            <th>Active</th>
+
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let book of books;let i = index">
+              <td>{{i+1}}</td>
+              <td>{{book.bookId}}</td>
+              <td>{{book.title}}</td>
+              <td>{{book.publisher}}</td>
+              <td>{{book.category}}</td>
+              <td>{{book.rating}}</td>
+              <td>{{book.active}}</td>
+              <td><a routerLink="/edit/{{book.bookId}}"><i class="fa fa-edit"></i></a></td>
+      </mat-card-content>
+    </mat-card>
+  </table>
+</body>
+  </tab>
+</tabs>
+<div style="margin-top: auto; width: 100%; background-color: #58b5eb; padding-top: 5px; text-align: center;">
+  <p>Copyright &copy; 2022</p>
+</div>

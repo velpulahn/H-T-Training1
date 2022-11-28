@@ -1,0 +1,17 @@
+<body>
+    <div class="container">
+  <form [formGroup]="bookForm" id='survey-form'>
+    <div class='form-group'>
+        <label id='emailId'>Email ID</label>
+        <input [(ngModel)]="bookById.emailId" type='text' formControlName="emailId" id='emailId' placeholder='Enter your Email Id'
+         class='form-control' name="emailId" required />
+    <span class="text-danger" *ngIf="bookForm.controls['emailId'].dirty && bookForm.hasError('required','emailId')">*Email Id is Required</span>
+      </div>
+      <div class='form-group'>
+        <label id='bookId'>Book ID</label>
+        <input [(ngModel)]="bookById.bookId" type='text' formControlName="bookId" id='bookId' placeholder='Enter your Book Id'
+         class='form-control' name="bookId" required />
+    <span class="text-danger" *ngIf="bookForm.controls['bookId'].dirty && bookForm.hasError('required','bookId')">*Book Id is Required</span>
+      </div>
+      <button type="submit" [disabled]="!bookForm.valid"><a routerLink="/refundPage/{{bookById.bookId}}"></a></button>
+       

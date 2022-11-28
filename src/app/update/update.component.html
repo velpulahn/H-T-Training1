@@ -1,0 +1,96 @@
+<body>
+    <div class="container">
+      <form [formGroup]="updateForm" id='survey-form' (ngSubmit)="updateBook(bookDetails)">
+        <div class='form-group'>
+          <label id='bookId-label' for="bookId">Book Id</label>
+          <input type="number" [(ngModel)]="this.bookDetails.bookId" name="bookId" id="bookId" formControlName="bookId"
+            placeholder="Enter Book Id" required>
+          <span class="text-danger"
+            *ngIf="updateForm.controls['bookId'].dirty && updateForm.hasError('required','bookId')">*Author ID is
+            Required</span>
+        </div>
+        <div class='form-group'>
+          <label id='authorId-label' for="authorId">Author Id</label>
+          <input type="number" [(ngModel)]="bookDetails.authorId" id="authorId" formControlName="authorId"
+            class="form-control" placeholder='Enter your Author Id' name="authorId" required />
+          <span class="text-danger"
+            *ngIf="updateForm.controls['authorId'].dirty && updateForm.hasError('required','authorId')">*Author ID is
+            Required</span>
+        </div>
+        <div class="form-group">
+          <label id='title-label' for="title">Title</label>
+          <input type="text" [(ngModel)]="bookDetails.title" name="title" formControlName="title" class="form-control"
+            id="title" placeholder="Enter Book Title" name="title" required>
+          <span class="text-danger"
+            *ngIf="updateForm.controls['title'].dirty && updateForm.hasError('required','title')">*Title is
+            Required</span>
+        </div>
+        <div class="form-group">
+          <label id='author-label' for="author">Author</label>
+          <input type='text' [(ngModel)]="bookDetails.author" id='author' formControlName="author"
+            class="form-control" placeholder='Enter your Author Name' name="author" required />
+          <span class="text-danger"
+            *ngIf="updateForm.controls['author'].dirty && updateForm.hasError('required','author')">*Author is
+            Required</span>
+        </div>
+        <div class="form-group">
+          <label id='publisher-label' for="publisher">Author</label>
+          <input type='text' [(ngModel)]="bookDetails.publisher" id='publisher' formControlName="publisher"
+            class="form-control" placeholder='Enter your publisher Name' name="publisher" required />
+          <span class="text-danger"
+            *ngIf="updateForm.controls['publisher'].dirty && updateForm.hasError('required','publisher')">*Author is
+            Required</span>
+        </div>
+        <div class='form-group'>
+          <label id='price-label' for="price">Price</label>
+          <input type='number' [(ngModel)]="bookDetails.price" id='price' formControlName="price"
+            placeholder='Enter your Price' class="form-control" name="price" required />
+          <span class="text-danger"
+            *ngIf="updateForm.controls['price'].dirty && updateForm.hasError('required','price')">*Price is
+            Required</span>
+        </div>
+        <div class='form-group'>
+          <label id='publishedDate-label' for="publishedDate">Published Date</label>
+          <input type='date' [(ngModel)]="bookDetails.publishedDate" id='publishedDate'
+            formControlName="publishedDate" placeholder='DD/MM/YYYY' class="form-control" name="publishedDate"
+            required />
+          <span class="text-danger"
+            *ngIf="updateForm.controls['publishedDate'].dirty && updateForm.hasError('required','publishedDate')">*Published
+            Date is Required</span>
+        </div>
+        <div class='form-group'>
+          <label id='category-label' for="category">Category</label>
+          <input type='text' [(ngModel)]="bookDetails.category" id='category' formControlName="category"
+            placeholder='Enter your category' class="form-control" name="category" required />
+          <span class="text-danger"
+            *ngIf="updateForm.controls['category'].dirty && updateForm.hasError('required','category')">*Category ID is
+            Required</span>
+        </div>
+        <div class='form-group'>
+          <label id='rating-label' for="rating">Rating</label>
+          <input type='number' [(ngModel)]="bookDetails.rating" id='rating' formControlName="rating"
+            placeholder='Give your Rating' class="form-control" name="rating" required />
+          <span class="text-danger"
+            *ngIf="updateForm.controls['rating'].dirty && updateForm.hasError('required','rating')">*Rating is
+            Required</span>
+        </div>
+        <div class='form-group'>
+          <label id='isActive-label' for="isActive">Active</label>
+          <input type='text' [(ngModel)]="bookDetails.isActive" id='isActive' formControlName="isActive"
+            placeholder='Enter Book Status' class="form-control" name="isActive" required />
+          <span class="text-danger"
+            *ngIf="updateForm.controls['isActive'].dirty && updateForm.hasError('required','isActive')">*Active Status
+            is Required</span>
+        </div>
+        <div class='form-group'>
+          <label id='content-label' for="content">Content</label>
+          <input type='text' [(ngModel)]="bookDetails.content" id='content' formControlName="content"
+            placeholder='Enter Book Content' class="form-control" name="content" required />
+          <span class="text-danger"
+            *ngIf="updateForm.controls['content'].dirty && updateForm.hasError('required','content')">*Content is
+            Required</span>
+        </div>
+        <button type="submit" [disabled]="!updateForm.valid" class ="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </body>

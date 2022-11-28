@@ -1,0 +1,61 @@
+<body>
+  <div class="container">
+<form [formGroup]="searchForm" id='survey-form' (ngSubmit)="onSubmit(book)">
+  <div class='form-group'>
+      <label id='category'>Category</label>
+      <input [(ngModel)]="book.category" type='text' formControlName="category" id='category' placeholder='Enter your Category'
+       class='form-control' name="category" required />
+  <span class="text-danger" *ngIf="searchForm.controls['category'].dirty && searchForm.hasError('required','category')">*UserName is Required</span>
+    </div>
+  <div class='form-group'>
+      <label id='author'>Author</label>
+      <input [(ngModel)]="book.author" formControlName="author" type='text' id='author' placeholder='Enter Author Name' 
+      class='form-control' name="author" required />
+      <span class="text-danger" *ngIf="searchForm.controls['author'].dirty && searchForm.hasError('required','author')">*Author Name is Required</span>
+  </div>
+  <div class='form-group'>
+    <label id='username'>Price</label>
+    <input [(ngModel)]="book.price" type='text' formControlName="price" id='price' placeholder='Enter Price Details'
+     class='form-control' name="price" required />
+<span class="text-danger" *ngIf="searchForm.controls['price'].dirty && searchForm.hasError('required','price')">*Price is Required</span>
+  </div>
+<div class='form-group'>
+    <label id='publisher'>Publisher</label>
+    <input [(ngModel)]="book.publisher" type='text' formControlName="publisher" id='publisher' placeholder='Enter your Publisher' 
+    class='form-control' name="publisher" required />
+    <span class="text-danger" *ngIf="searchForm.controls['publisher'].dirty && searchForm.hasError('required','publisher')">*Publisher is Required</span>
+</div>
+    <button type="submit" [disabled]="!searchForm.valid">Get Book Details</button>
+<table *ngIf="books.length>0">
+  <thead>
+    <tr>
+        <th>S.No.</th>
+        <th>BookId</th>
+        <th>AuthorId</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Publisher</th>
+        <th>Category</th>
+        <th>Active</th>
+
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let b of books;let i = index">
+        <td>{{i+1}}</td>
+        <td>{{b.bookId}}</td>
+        <td>{{b.authorId}}</td>
+        <td>{{b.title}}</td>
+        <td>{{b.author}}</td>
+        <td>{{b.publisher}}</td>
+        <td>{{b.category}}</td>
+        <td>{{b.active}}</td>
+        <button class="btn btn-primary"><a routerLink="/moreDetails/{{b.bookId}}">View More</a></button>
+     </tr>
+</table>
+  </form>
+  </div>
+  <div style="margin-top: auto; width: 100%; background-color: #58b5eb; padding-top: 5px; text-align: center;">
+    <p>Copyright &copy; 2022</p>
+  </div>
+  </body>

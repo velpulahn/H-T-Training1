@@ -1,0 +1,61 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Shiba Inu</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="../../assets/images/Book.jfif" alt="img">
+    <mat-card-content>
+    
+      <h2>Details of a book {{this.books.title}}</h2>
+        <tr>
+        <td><Strong>Book ID :</Strong></td>
+         <td>{{this.books.bookId}}</td>
+       </tr>
+       <tr>
+        <td><Strong>Author ID :</Strong></td>
+        <td>{{this.books.authorId}}</td>
+       </tr>
+       <tr>
+        <td><Strong>Title :</Strong></td>
+        <td>{{this.books.title}}</td>
+       </tr>
+       <tr>
+        <td><Strong>Author :</Strong></td>
+        <td>{{this.books.author}}</td>
+       </tr>
+        <tr>
+        <td><Strong>Publisher :</Strong></td>
+        <td>{{this.books.publisher}}</td>
+       </tr>
+       <tr>
+        <td><Strong>Price :</Strong></td>
+        <td>{{this.books.price}}</td>
+       </tr>
+       <tr>
+        <td><Strong>Published Date :</Strong></td>
+        <td>{{this.books.publishedDate}}</td>
+       </tr>
+       <tr>
+        <td><Strong>Category :</Strong></td>
+        <td>{{this.books.category}}</td>
+       </tr>
+       <tr>
+        <td><Strong>Rating :</Strong></td>
+        <td>{{this.books.rating}}</td>
+       </tr>
+       <tr>
+        <td><Strong>Active :</Strong></td>
+        <td>{{this.books.isActive}}</td>
+       </tr>
+       <tr>
+        <td><Strong>Content :</Strong></td>
+        <td>{{this.books.content}}</td>
+       </tr>
+       <tr>
+        <!-- <button class="btn btn-primary"><a routerLink="buy/{{this.books.bookId}}">Buy</a></button> -->
+      <button (click)="buyBook(this.books.bookId)">Buy</button>
+      </tr>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card>

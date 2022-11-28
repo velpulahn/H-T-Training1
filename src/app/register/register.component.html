@@ -1,0 +1,35 @@
+<html lang="en"></html>
+<body>
+  <div class="container">
+    <form [formGroup]="loginForm" id='survey-form' #newAuthor="ngForm" (ngSubmit)="login(newAuthor)">
+      <!-- <div class='form-group'>
+  <label id='authorId-label' for="authorId">Author Id</label>
+  <input type="number" [(ngModel)]="credentials.authorId" name="authorId" id="authorId" formControlName="authorId" placeholder="Enter Author Id" required> 
+  <span class="text-danger" *ngIf="loginForm.controls['authorId'].dirty && loginForm.hasError('required','authorId')">*Author ID is Required</span>
+</div> -->
+<div class='form-group'>
+  <label id='userName-label' for="bookId">User Name</label>
+  <input type="text" [(ngModel)]="credentials.userName" name="userName" id="userName" formControlName="userName" placeholder="Enter User Name" required> 
+  <span class="text-danger" *ngIf="loginForm.controls['userName'].dirty && loginForm.hasError('required','userName')">*User Name is Required</span>
+</div>
+<div class='form-group'>
+  <label id='password-label' for="password">Password</label>
+  <input type="password" [(ngModel)]="credentials.password" name="password" id="password" formControlName="password" placeholder="Enter password" required> 
+  <span class="text-danger" *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">*Password is Required</span>
+</div>
+<div class='form-group'>
+  <label id='emailId-label' for="emailId">Email Id</label>
+  <input type="text" [(ngModel)]="credentials.emailId" name="emailId" id="emailId" formControlName="emailId" placeholder="Enter emailId" required> 
+  <span class="text-danger" *ngIf="loginForm. controls['emailId'].dirty && loginForm.hasError('required','emailId')">*EmailId is Required</span>
+</div>
+<div class='form-group'>
+  <label id='role-label' for="roles">Role</label>
+  <input type="text" [(ngModel)]="credentials.roles" name="roles" id="roles" formControlName="roles" placeholder="Enter Role" required> 
+  <span class="text-danger" *ngIf="loginForm.controls['roles'].dirty && loginForm.hasError('required','roles')">*Role is Required</span>
+</div>  
+  <div class='form-input'>
+    <button type="submit" [disabled]="!loginForm.valid">Sign Up</button>
+  </div>
+  </form>
+  </div>
+  </body>
